@@ -130,3 +130,7 @@ dmypy.json
 
 wandb/
 outputs/
+
+raw
+proc
+isic-2024-challenge.zip
