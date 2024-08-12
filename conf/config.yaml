@@ -1,0 +1,34 @@
+defaults:
+  - _self_
+  - model: efficientnet
+  
+
+seed: 42
+epochs: 50
+img_size: 384
+num_workers: 4
+train_batch_size: 64
+valid_batch_size: 128
+learning_rate: 1e-3
+scheduler: 'CosineAnnealingLR'
+min_lr: 1e-7
+weight_decay: 1e-5
+n_fold: 5
+n_accumulate: 1
+save_dir: "proc/val3"
+use_tta: false
+mixup_alpha: 0.3
+mixup_epochs: 40
+save_dir: "results"
+experiment_name: "val4-7_effnetb0_mixup"
+
+data:
+  train_metadata: "raw/train-metadata.csv"
+  positive_ratio: 0.05  # 正例の割合（1:20の場合は0.05）
+  downsample_valid: true  # 検証データもダウンサンプリングするかどうか
+
+wandb:
+  use: false
+  api_key: ${oc.env:WANDB_API_KEY}
+  project: "ISIC2024_images"
+  name: "val4-7_effnetb0_mixup"
